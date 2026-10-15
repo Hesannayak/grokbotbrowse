@@ -6,11 +6,11 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-  title: 'LocalCart — Local-First AI Shopping Agent',
+  title: 'BotCart — Local-First AI Shopping Agent',
   description:
     'Give your AI a shopping cart. Local-first browser automation that keeps your data on your machine.',
   openGraph: {
-    title: 'LocalCart',
+    title: 'BotCart',
     description: 'Give your AI a shopping cart. Your data never leaves your machine.',
     type: 'website',
   },

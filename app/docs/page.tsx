@@ -36,9 +36,9 @@ export default function DocsPage() {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <span className="flex h-7 w-7 items-center justify-center rounded-md bg-brand-600 text-xs font-bold">
-              LC
+              BC
             </span>
-            LocalCart
+            BotCart
             <span className="ml-2 text-gray-500">/</span>
             <span className="text-gray-400">Docs</span>
           </Link>
@@ -74,7 +74,7 @@ export default function DocsPage() {
           <div className="min-w-0 flex-1">
             <h1 className="text-3xl font-bold tracking-tight mb-4">Documentation</h1>
             <p className="text-gray-400 mb-12">
-              Everything you need to install, configure, and extend LocalCart.
+              Everything you need to install, configure, and extend BotCart.
             </p>
 
             {docs.length === 0 ? (

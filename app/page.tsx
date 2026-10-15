@@ -9,9 +9,9 @@ function Nav() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
           <span className="flex h-7 w-7 items-center justify-center rounded-md bg-brand-600 text-xs font-bold">
-            LC
+            BC
           </span>
-          LocalCart
+          BotCart
         </Link>
         <div className="flex items-center gap-6 text-sm text-gray-400">
           <Link href="/docs" className="hidden hover:text-white transition-colors sm:block">
@@ -62,7 +62,7 @@ function Hero() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-400 md:text-xl">
-          LocalCart lets your local LLM browse, compare, and buy on Amazon through a real browser
+          BotCart lets your local LLM browse, compare, and buy on Amazon through a real browser
           session &mdash; without your data ever leaving your machine. Human-in-the-loop approval
           for every checkout.
         </p>
@@ -70,7 +70,7 @@ function Hero() {
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <div className="code-block w-full max-w-md sm:w-auto">
             <pre className="!py-3 !px-5">
-              <code className="text-brand-300">npx create-localcart@latest</code>
+              <code className="text-brand-300">npx create-botcart@latest</code>
             </pre>
           </div>
           <span className="text-xs text-gray-500">or</span>
@@ -104,7 +104,7 @@ const steps = [
   },
   {
     number: '02',
-    label: 'LocalCart Bridge',
+    label: 'BotCart Bridge',
     title: 'Bridge Translates',
     description:
       'The bridge receives structured JSON commands, enforces rate limits, checks the HITL gate, and drives the browser with human-like timing.',
@@ -255,7 +255,7 @@ npm run bridge`;
               <pre>
                 <code>
                   <span className="text-gray-500">$</span>{' '}
-                  <span className="text-brand-300">npx create-localcart@latest</span>
+                  <span className="text-brand-300">npx create-botcart@latest</span>
                 </code>
               </pre>
             </div>
@@ -283,7 +283,7 @@ npm run bridge`;
             <ol className="mt-3 space-y-2 text-sm text-gray-400">
               <li>
                 <span className="mr-2 font-mono text-brand-400">1.</span>
-                LocalCart launches a Chromium window. Log in to Amazon if you haven&apos;t already.
+                BotCart launches a Chromium window. Log in to Amazon if you haven&apos;t already.
               </li>
               <li>
                 <span className="mr-2 font-mono text-brand-400">2.</span>
@@ -328,10 +328,10 @@ function ArchitecturePreview() {
             <span className="h-3 w-3 rounded-full bg-red-500/60" />
             <span className="h-3 w-3 rounded-full bg-yellow-500/60" />
             <span className="h-3 w-3 rounded-full bg-green-500/60" />
-            <span className="ml-3 text-xs text-gray-500">LocalCart Control Panel</span>
+            <span className="ml-3 text-xs text-gray-500">BotCart Control Panel</span>
           </div>
           <div className="bg-[#0f1117] p-6 font-mono text-xs leading-relaxed text-gray-400">
-            <div className="text-emerald-400">LOCALCART READY</div>
+            <div className="text-emerald-400">BOTCART READY</div>
             <div className="mt-2">
               <span className="text-gray-600">21:04:12</span>{' '}
               <span className="text-brand-400">search</span>{' '}
@@ -372,7 +372,7 @@ function Footer() {
     <footer className="border-t border-white/5 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-sm text-gray-500 md:flex-row md:justify-between md:px-6">
         <div>
-          LocalCart is open-source software under the{' '}
+          BotCart is open-source software under the{' '}
           <a href="https://opensource.org/licenses/MIT" className="text-gray-400 hover:text-white">
             MIT License
           </a>

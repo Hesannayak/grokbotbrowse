@@ -179,7 +179,7 @@ export const DEFAULT_RATE_LIMITS: RateLimits = {
 
 // --- Config ---
 
-export interface LocalCartConfig {
+export interface BotCartConfig {
   userDataDir: string;
   headless: boolean;
   allowedDomains: string[];

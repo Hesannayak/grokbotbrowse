@@ -4,14 +4,14 @@
 
 - **Node.js 20+** (LTS recommended)
 - **A local LLM** — [Ollama](https://ollama.ai), llama.cpp, or any OpenAI-compatible local API
-- **A logged-in Amazon session** — LocalCart uses your existing browser profile
+- **A logged-in Amazon session** — BotCart uses your existing browser profile
 
 ## Installation
 
 ### Option A: npx (recommended)
 
 ```bash
-npx create-localcart@latest
+npx create-botcart@latest
 ```
 
 ### Option B: Clone from source
@@ -36,7 +36,7 @@ This launches:
 ## First-Time Setup
 
 1. When the browser opens, navigate to Amazon and log in manually.
-2. Your session cookies are saved to `~/.localcart/browser-profile/` and persist across restarts.
+2. Your session cookies are saved to `~/.botcart/browser-profile/` and persist across restarts.
 3. Open `http://127.0.0.1:7701` in a separate browser tab to see the control panel.
 
 ## CLI Flags
@@ -46,7 +46,7 @@ This launches:
 | `--headless` | `false` | Run browser without visible window |
 | `--port <n>` | `7700` | Bridge RPC port |
 | `--ui-port <n>` | `7701` | Control panel port |
-| `--profile-path <dir>` | `~/.localcart/browser-profile` | Chrome user data directory |
+| `--profile-path <dir>` | `~/.botcart/browser-profile` | Chrome user data directory |
 | `--allowed-domains <d>` | `amazon.com,www.amazon.com` | Comma-separated domain allowlist |
 
 ## Connecting Your LLM

@@ -1,10 +1,10 @@
 {
-  "name": "localcart",
+  "name": "botcart",
   "version": "0.2.0",
   "description": "Local-first AI shopping agent — your data never leaves your machine",
   "type": "module",
   "bin": {
-    "localcart": "./dist/bridge/cli.js"
+    "botcart": "./dist/bridge/cli.js"
   },
   "scripts": {
     "dev": "next dev",

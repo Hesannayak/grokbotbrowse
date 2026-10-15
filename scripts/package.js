@@ -3,7 +3,7 @@
 /**
  * Bundles the bridge into a distributable tarball for GitHub Releases.
  *
- * Produces: dist/localcart-<version>-<platform>.tar.gz
+ * Produces: dist/botcart-<version>-<platform>.tar.gz
  *
  * Usage:
  *   node scripts/package.js            # Build for current platform
@@ -25,7 +25,7 @@ const platforms = process.argv.includes('--all')
   : [process.platform];
 
 async function bundle() {
-  console.log(`Bundling localcart v${version}...`);
+  console.log(`Bundling botcart v${version}...`);
 
   // 1. esbuild the CLI into a single file
   execSync('npm run bridge:build', { cwd: ROOT, stdio: 'inherit' });
@@ -33,7 +33,7 @@ async function bundle() {
   const distDir = path.join(ROOT, 'dist');
 
   for (const platform of platforms) {
-    const archiveName = `localcart-${version}-${platform}.tar.gz`;
+    const archiveName = `botcart-${version}-${platform}.tar.gz`;
     const outPath = path.join(distDir, archiveName);
 
     console.log(`  Packaging ${archiveName}...`);
@@ -49,27 +49,27 @@ async function bundle() {
     archive.pipe(output);
 
     // Include the bundled CLI
-    archive.file(path.join(distDir, 'bridge', 'cli.js'), { name: 'localcart/cli.js' });
+    archive.file(path.join(distDir, 'bridge', 'cli.js'), { name: 'botcart/cli.js' });
 
     // Include a launcher script
     const launcher = platform === 'win32'
       ? '@echo off\nnode "%~dp0cli.js" %*\n'
       : '#!/usr/bin/env bash\nexec node "$(dirname "$0")/cli.js" "$@"\n';
 
-    const launcherName = platform === 'win32' ? 'localcart.cmd' : 'localcart';
+    const launcherName = platform === 'win32' ? 'botcart.cmd' : 'botcart';
 
-    archive.append(launcher, { name: `localcart/${launcherName}`, mode: 0o755 });
+    archive.append(launcher, { name: `botcart/${launcherName}`, mode: 0o755 });
 
     // Include package.json (for version info) and README
-    archive.file(path.join(ROOT, 'package.json'), { name: 'localcart/package.json' });
+    archive.file(path.join(ROOT, 'package.json'), { name: 'botcart/package.json' });
     if (fs.existsSync(path.join(ROOT, 'README.md'))) {
-      archive.file(path.join(ROOT, 'README.md'), { name: 'localcart/README.md' });
+      archive.file(path.join(ROOT, 'README.md'), { name: 'botcart/README.md' });
     }
 
     // Include the control panel HTML
     archive.file(
       path.join(ROOT, 'bridge', 'ui', 'control-panel.html'),
-      { name: 'localcart/control-panel.html' }
+      { name: 'botcart/control-panel.html' }
     );
 
     await archive.finalize();

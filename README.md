@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>LocalCart</strong><br>
+  <strong>BotCart</strong><br>
   <em>Give your AI a shopping cart.</em>
 </p>
 
@@ -11,14 +11,14 @@
 
 ---
 
-LocalCart is a **local-first** AI shopping agent. It lets a local LLM browse, compare, and purchase products on Amazon through a real browser session — without your data ever leaving your machine.
+BotCart is a **local-first** AI shopping agent. It lets a local LLM browse, compare, and purchase products on Amazon through a real browser session — without your data ever leaving your machine.
 
-## Why LocalCart?
+## Why BotCart?
 
-Most AI shopping tools send your browsing data, purchase history, and payment information through cloud APIs. LocalCart takes a different approach:
+Most AI shopping tools send your browsing data, purchase history, and payment information through cloud APIs. BotCart takes a different approach:
 
 - **100% local.** The LLM, the bridge, and the browser all run on your machine. If you use a local model (Ollama, llama.cpp), nothing touches the internet except the browser talking to Amazon.
-- **Your real session.** No fake accounts. LocalCart drives your own logged-in Chromium profile with human-like timing, scrolling, and mouse movements.
+- **Your real session.** No fake accounts. BotCart drives your own logged-in Chromium profile with human-like timing, scrolling, and mouse movements.
 - **Human-in-the-loop.** The LLM can search, browse, and add to cart autonomously. But checkout and order placement are **blocked until you approve them** in the control panel.
 - **PII never reaches the LLM.** Credit cards, addresses, and emails are redacted from the page data before the LLM sees it.
 
@@ -26,7 +26,7 @@ Most AI shopping tools send your browsing data, purchase history, and payment in
 
 ```bash
 # Option A: scaffolded project
-npx create-localcart@latest
+npx create-botcart@latest
 
 # Option B: from source
 git clone https://github.com/builders-arena/localcart
@@ -45,7 +45,7 @@ This opens a Chromium window and starts the bridge. Log in to Amazon in the brow
 
 ```
 ┌──────────┐   JSON-RPC    ┌──────────────┐   Playwright   ┌──────────┐
-│ Local LLM│◄─────────────►│ LocalCart     │◄──────────────►│ Chromium │
+│ Local LLM│◄─────────────►│ BotCart       │◄──────────────►│ Chromium │
 │ (Ollama) │  localhost     │ Bridge       │   (your        │ (your    │
 │          │  :7700         │              │    profile)     │ profile) │
 └──────────┘                └──────┬───────┘                └────┬─────┘
@@ -73,7 +73,7 @@ See [Security docs](docs/security.md) for the full model.
 ## CLI Flags
 
 ```
-localcart [options]
+botcart [options]
 
   --headless              Run browser without visible window
   --port <n>              Bridge RPC port (default: 7700)
@@ -126,7 +126,7 @@ See [Contributing guide](docs/contributing.md). Short version:
 
 ## Terms of Service Notice
 
-LocalCart automates a browser session on the user's own machine and logged-in account. Users are responsible for compliance with the terms of service of any website they interact with. The built-in rate limiter and behavioral modeling are designed to keep usage patterns within reasonable human bounds, but users should review the relevant ToS themselves.
+BotCart automates a browser session on the user's own machine and logged-in account. Users are responsible for compliance with the terms of service of any website they interact with. The built-in rate limiter and behavioral modeling are designed to keep usage patterns within reasonable human bounds, but users should review the relevant ToS themselves.
 
 ## License
 

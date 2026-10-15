@@ -12,7 +12,7 @@ import { SessionManager } from './core/session-manager.js';
 import {
   ActionSchema,
   DEFAULT_RATE_LIMITS,
-  type LocalCartConfig,
+  type BotCartConfig,
   type ApprovalRequest,
 } from './types/index.js';
 
@@ -34,49 +34,49 @@ const { values: flags } = parseArgs({
 
 if (flags.version) {
   const pkg = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
-  console.log(`localcart v${pkg.version}`);
+  console.log(`botcart v${pkg.version}`);
   process.exit(0);
 }
 
 if (flags.help) {
   console.log(`
-  localcart — Local-first AI shopping agent bridge
+  botcart — Local-first AI shopping agent bridge
 
   USAGE
-    localcart [options]
+    botcart [options]
 
   OPTIONS
     --headless            Run browser without visible window (default: false)
     --port <n>            Bridge RPC port for LLM communication (default: 7700)
     --ui-port <n>         Control panel WebSocket port (default: 7701)
-    --profile-path <dir>  Chrome user data directory (default: ~/.localcart/profile)
+    --profile-path <dir>  Chrome user data directory (default: ~/.botcart/profile)
     --allowed-domains <d> Comma-separated domain allowlist (default: amazon.com)
     -v, --version         Print version
     -h, --help            Show this message
 
   ENVIRONMENT VARIABLES
-    LOCALCART_LLM_ENDPOINT   Local LLM API URL (default: http://localhost:11434)
+    BOTCART_LLM_ENDPOINT   Local LLM API URL (default: http://localhost:11434)
 
   EXAMPLES
-    localcart                                     # Standard launch
-    localcart --headless --port 8080              # Headless on custom port
-    localcart --profile-path ~/my-chrome-profile  # Use existing Chrome profile
+    botcart                                     # Standard launch
+    botcart --headless --port 8080              # Headless on custom port
+    botcart --profile-path ~/my-chrome-profile  # Use existing Chrome profile
   `);
   process.exit(0);
 }
 
 // ─── Configuration ───────────────────────────────────────────────────
 
-const defaultProfilePath = path.join(os.homedir(), '.localcart', 'browser-profile');
+const defaultProfilePath = path.join(os.homedir(), '.botcart', 'browser-profile');
 
-const config: LocalCartConfig = {
+const config: BotCartConfig = {
   userDataDir: flags['profile-path'] || defaultProfilePath,
   headless: flags.headless ?? false,
   allowedDomains: (flags['allowed-domains'] || 'amazon.com,www.amazon.com')
     .split(',')
     .map((d) => d.trim()),
   rateLimits: DEFAULT_RATE_LIMITS,
-  llmEndpoint: process.env.LOCALCART_LLM_ENDPOINT || 'http://localhost:11434',
+  llmEndpoint: process.env.BOTCART_LLM_ENDPOINT || 'http://localhost:11434',
   bridgePort: parseInt(flags.port || '7700', 10),
   uiPort: parseInt(flags['ui-port'] || '7701', 10),
 };
@@ -230,7 +230,7 @@ async function main(): Promise<void> {
   const cyan = '\x1b[36m';
 
   console.log(`
-${bold}${green}  LocalCart is ready.${reset}
+${bold}${green}  BotCart is ready.${reset}
 
 ${dim}  ───────────────────────────────────────────${reset}
    Bridge RPC     ${cyan}http://127.0.0.1:${config.bridgePort}/rpc${reset}
@@ -258,6 +258,6 @@ ${dim}  ────────────────────────
 }
 
 main().catch((err) => {
-  log.fatal({ error: err }, 'Failed to start LocalCart');
+  log.fatal({ error: err }, 'Failed to start BotCart');
   process.exit(1);
 });

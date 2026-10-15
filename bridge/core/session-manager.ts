@@ -4,7 +4,7 @@ import type {
   ActionCommand,
   BridgeResponse,
   BridgeState,
-  LocalCartConfig,
+  BotCartConfig,
   PageState,
 } from '../types/index.js';
 import { extractPageState, redactPIIContainers } from './dom-sanitizer.js';
@@ -18,11 +18,11 @@ export class SessionManager {
   private context: BrowserContext | null = null;
   private page: Page | null = null;
   private state: BridgeState = 'idle';
-  private config: LocalCartConfig;
+  private config: BotCartConfig;
   private rateLimiter: RateLimiter;
   readonly hitlGate: HITLGate;
 
-  constructor(config: LocalCartConfig) {
+  constructor(config: BotCartConfig) {
     this.config = config;
     this.rateLimiter = new RateLimiter(config.rateLimits);
     this.hitlGate = new HITLGate();

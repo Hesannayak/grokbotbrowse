@@ -2,10 +2,10 @@
 
 ## System Overview
 
-LocalCart has three components, all running on your machine:
+BotCart has three components, all running on your machine:
 
 ```
-Local LLM  ←→  LocalCart Bridge  ←→  Chromium (your profile)
+Local LLM  ←→  BotCart Bridge  ←→  Chromium (your profile)
               (Node.js/TypeScript)
 ```
 

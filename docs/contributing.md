@@ -1,6 +1,6 @@
 # Contributing
 
-LocalCart is MIT-licensed and welcomes contributions.
+BotCart is MIT-licensed and welcomes contributions.
 
 ## Development Setup
 
